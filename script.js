@@ -1,20 +1,13 @@
-// Đếm ngược ngày cưới
-const weddingDate = new Date("2025-12-15T10:00:00").getTime();
-const countdown = document.getElementById("countdown");
+// Script cho slideshow tự động
+let index = 0;
+const slides = document.querySelectorAll(".slideshow img");
 
-setInterval(() => {
-  const now = new Date().getTime();
-  const distance = weddingDate - now;
+function showSlide() {
+  slides.forEach((img, i) => {
+    img.classList.toggle("active", i === index);
+  });
+  index = (index + 1) % slides.length;
+}
 
-  if (distance < 0) {
-    countdown.innerHTML = "Chúng tôi đã kết hôn 💍";
-    return;
-  }
-
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((distance / (1000 * 60)) % 60);
-  const seconds = Math.floor((distance / 1000) % 60);
-
-  countdown.innerHTML = `${days} ngày ${hours} giờ ${minutes} phút ${seconds} giây`;
-}, 1000);
+showSlide();
+setInterval(showSlide, 4000); // đổi ảnh mỗi 4 giây
