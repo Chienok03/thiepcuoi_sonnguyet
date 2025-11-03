@@ -1,3 +1,4 @@
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -5,96 +6,179 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: #fffafc;
   color: #333;
+  overflow-x: hidden;
 }
 
-/* --- Hero --- */
 .hero {
   position: relative;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
 }
 
-.slideshow img {
-  position: absolute;
+/* --- Slideshow --- */
+.slideshow {
+  position: relative;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: contain;
+  /* Giữ nguyên tỉ lệ ảnh */
+  background-repeat: repeat-x;
+  /* Lặp lại ngang */
+  background-position: center;
+  /* Căn giữa */
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
 }
 
-.slideshow img.active {
+.slide.active {
   opacity: 1;
 }
 
+/* --- Overlay --- */
 .overlay {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(255, 182, 193, 0.4);
+  inset: 0;
+  background: rgba(255, 200, 200, 0.25);
+  backdrop-filter: blur(1px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
   text-align: center;
+  color: #fff;
 }
 
 .overlay h1 {
   font-size: 3em;
   margin-bottom: 10px;
+  font-family: "Great Vibes", cursive;
 }
 
 .overlay h2 {
   font-size: 2em;
 }
 
-/* --- Couple --- */
-.couple {
+.overlay p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* --- Couple Section --- */
+.couple-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.couple-photos {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 20px;
-  flex-wrap: wrap;
   gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 
-.person {
-  text-align: center;
-}
-
-.person img {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
+.photo img {
+  width: 320px;
+  height: 320px;
   object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line {
+  width: 2px;
+  height: 80px;
+  background-color: #f4c7c3;
 }
 
 .heart {
-  font-size: 3em;
-  color: #ff6699;
+  position: fixed;
+  bottom: -10px;
+  font-size: 20px;
+  animation: floatUp linear forwards;
+  opacity: 0.8;
+}
+
+.couple-title {
+  color: #f28da2;
+  font-size: 1.8em;
+  margin: 20px 0 10px;
+  font-weight: 600;
+}
+
+.couple-desc {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  color: #666;
+  line-height: 1.7;
+}
+
+.couple-names {
+  font-family: "Dancing Script", cursive;
+  font-size: 2em;
+  color: #f28da2;
+  margin-bottom: 20px;
+}
+
+.parents {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+  font-size: 0.95em;
+  color: #555;
+}
+
+.parents strong {
+  color: #000;
 }
 
 /* --- Album --- */
 .album {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 10px;
-  padding: 40px;
-  object-fit: cover;
+  text-align: center;
+  padding: 60px 20px;
+  background: #fff0f5;
 }
 
-.album img {
+.album h2 {
+  font-family: "Great Vibes", cursive;
+  color: #f28da2;
+  font-size: 2.5em;
+  margin-bottom: 40px;
+}
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 15px;
+  justify-items: center;
+}
+
+.album-grid img {
   width: 100%;
   border-radius: 10px;
   transition: transform 0.3s;
+  object-fit: cover;
 }
 
-.album img:hover {
+.album-grid img:hover {
   transform: scale(1.05);
 }
 
@@ -102,7 +186,7 @@ body {
 .info {
   text-align: center;
   padding: 40px 20px;
-  background: #fff0f5;
+  background: #fffafc;
 }
 
 /* --- QR --- */
@@ -115,14 +199,123 @@ body {
 }
 
 .qr img {
+  width: auto;
   width: 150px;
   height: 150px;
+  border-radius: 10px;
 }
 
 /* --- Footer --- */
 footer {
   text-align: center;
   padding: 30px;
-  background: #ffe6f0;
+  background: linear-gradient(to right, #fff0f5, #ffe6f0);
   font-size: 1.2em;
+}
+
+/* --- Music Button --- */
+.music-player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+#musicBtn {
+  font-size: 26px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  color: #ff69b4;
+  height: 55px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+#musicBtn:hover {
+  background: rgba(255, 182, 193, 0.9);
+  transform: scale(1.1);
+}
+
+/* Hiệu ứng xoay nhẹ khi phát */
+#musicBtn.playing {
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Floating Hearts Animation --- */
+.heart-floating {
+  position: fixed;
+  color: #ff8fab;
+  font-size: 20px;
+  animation: floatUp 5s linear infinite;
+  opacity: 0.8;
+  z-index: 999;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .overlay h1 {
+    font-size: 2em;
+  }
+
+  .overlay h2 {
+    font-size: 1.2em;
+  }
+
+  .photo img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .parents {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* 👉 Chỉnh lại phần album-grid */
+  .album-grid {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 ảnh / hàng */
+    gap: 10px;
+    /* giảm khoảng cách một chút cho đẹp */
+  }
+
+  .qr {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .slide {
+    background-repeat: repeat-y;
+  }
+}
+
+@media (max-width: 480px) {
+  .album-grid {
+    grid-template-columns: 1fr;
+  }
 }
