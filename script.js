@@ -90,3 +90,49 @@ if (btn && music) {
     }
   });
 }
+
+// --- Lightbox Gallery ---
+const images = document.querySelectorAll(".album-grid img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".lightbox .close");
+const prevBtn = document.querySelector(".lightbox .prev");
+const nextBtn = document.querySelector(".lightbox .next");
+
+let currentIndex = 0;
+
+function showImage(index) {
+  currentIndex = index;
+  lightboxImg.src = images[currentIndex].src;
+  lightbox.style.display = "flex";
+}
+
+images.forEach((img, i) => {
+  img.addEventListener("click", () => showImage(i));
+});
+
+closeBtn.addEventListener("click", () => {
+  lightbox.style.display = "none";
+});
+
+prevBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage(currentIndex);
+});
+
+nextBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage(currentIndex);
+});
+
+// Vuốt trái/phải trên điện thoại
+let touchStartX = 0;
+lightbox.addEventListener("touchstart", (e) => {
+  touchStartX = e.touches[0].clientX;
+});
+
+lightbox.addEventListener("touchend", (e) => {
+  const diff = e.changedTouches[0].clientX - touchStartX;
+  if (diff > 50) prevBtn.click();
+  if (diff < -50) nextBtn.click();
+});

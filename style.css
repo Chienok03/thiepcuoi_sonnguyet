@@ -30,11 +30,8 @@ body {
   position: absolute;
   inset: 0;
   background-size: contain;
-  /* Giữ nguyên tỉ lệ ảnh */
   background-repeat: repeat-x;
-  /* Lặp lại ngang */
   background-position: center;
-  /* Căn giữa */
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
 }
@@ -114,6 +111,14 @@ body {
   font-size: 20px;
   animation: floatUp linear forwards;
   opacity: 0.8;
+  color: #ff8fab;
+}
+
+.couple-section .divider .heart {
+  position: static;
+  animation: none;
+  font-size: 24px;
+  opacity: 1;
 }
 
 .couple-title {
@@ -292,12 +297,9 @@ footer {
     gap: 20px;
   }
 
-  /* 👉 Chỉnh lại phần album-grid */
   .album-grid {
     grid-template-columns: repeat(2, 1fr);
-    /* 2 ảnh / hàng */
     gap: 10px;
-    /* giảm khoảng cách một chút cho đẹp */
   }
 
   .qr {
@@ -312,10 +314,69 @@ footer {
   .slide {
     background-repeat: repeat-y;
   }
+
+  .lightbox img {
+    max-width: 95%;
+    max-height: 75vh;
+  }
 }
 
 @media (max-width: 480px) {
   .album-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
   }
+
+  .album-grid img {
+    border-radius: 8px;
+  }
+}
+
+/* --- Lightbox (Xem ảnh phóng to) --- */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 36px;
+  cursor: pointer;
+}
+
+.lightbox .nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+}
+
+.lightbox .prev {
+  left: 20px;
+}
+
+.lightbox .next {
+  right: 20px;
+}
+
+@media (max-width: 768px) {
 }
