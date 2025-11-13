@@ -25,30 +25,56 @@
       <div class="slide" style="background-image: url('assets/img/slider/sl5.jpg')"></div>
     </div>
     <div class="overlay">
-      <h1>Lễ Vu Quy</h1>
+      <h1>We get married!</h1>
       <h2>Trung Sơn & Minh Nguyệt</h2>
       <p>30 . 11 . 2025</p>
+      <div class="countdown">
+        <div class="time-box">
+          <span id="days">00</span>
+          <p>Ngày</p>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <p>Giờ</p>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <p>Phút</p>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <p>Giây</p>
+        </div>
+      </div>
     </div>
+
+
   </section>
 
   <!-- Couple Section -->
   <section class="couple-section">
-    <div class="couple-photos">
-      <div class="photo">
-        <img src="assets/img/chure.JPG" alt="Chú rể" />
+    <h2 class="couple-title">Thư mời tham dự lễ cưới</h2>
+
+    <div class="couple-details">
+      <div class="groom-info">
+        <div class="photo">
+          <img src="assets/img/chure.JPG" alt="Chú rể" />
+        </div>
+        <p class="role">Chú rể</p>
+        <h3 class="name">Trung Sơn</h3>
       </div>
 
-      <div class="divider">
-        <div class="line"></div>
-        <div class="heart">❤</div>
-      </div>
+      <!-- Dải phân cách giữa hai bên (có thể dùng CSS để tạo đường kẻ/biểu tượng nếu cần) -->
+      <div class="divider"></div>
 
-      <div class="photo">
-        <img src="assets/img/codau.JPG" alt="Cô Dâu" />
+      <div class="bride-info">
+        <div class="photo">
+          <img src="assets/img/codau.JPG" alt="Cô Dâu" />
+        </div>
+        <p class="role">Cô dâu</p>
+        <h3 class="name">Minh Nguyệt</h3>
       </div>
     </div>
-
-    <h2 class="couple-title">Và... Ngày ấy đã tới</h2>
 
     <p class="couple-desc">
       Thật vui vì được gặp và đón tiếp các bạn trong một dịp đặc biệt – Ngày
@@ -58,23 +84,41 @@
       bạn đã dành cho chúng mình nha!
     </p>
 
-    <h3 class="couple-names">Trung Sơn & Minh Nguyệt</h3>
+    <!-- Bạn có thể xóa hoặc giữ lại H3 couple-names nếu muốn, 
+         nhưng thông tin tên đã có trong couple-details --><!-- <h3 class="couple-names">Trung Sơn & Minh Nguyệt</h3> -->
+    <section class="parents">
+      <div class="parent-column">
+        <h4>Nhà trai</h4>
+        <p><strong>Bố:</strong> Phạm Công Thuấn</p>
+        <p><strong>Mẹ:</strong> Trần Thị Vy</p>
+        <p class="address"><strong>Địa chỉ:</strong> Số 9A, đường Tô Hiến Thành, phường Trường Thi, tỉnh Ninh Bình</p>
+      </div>
 
-    <div class="parents">
-      <div>
-        <p>Con ông: <strong>Nguyễn Đình Kiên</strong></p>
-        <p>Con bà: <strong>Vũ Thị Hồng</strong></p>
+      <div class="divider"></div>
+
+      <div class="parent-column">
+        <h4>Nhà gái</h4>
+        <p><strong>Bố:</strong> Nguyễn Văn Công</p>
+        <p><strong>Mẹ:</strong> Đỗ Thị Bích Thủy</p>
+        <p class="address"><strong>Địa chỉ:</strong> Xóm Đồng Văn, thôn Văn Hưng, xã Vạn Thắng, tỉnh Ninh Bình</p>
       </div>
-      <div>
-        <p>Con ông: <strong>Nguyễn Văn Công</strong></p>
-        <p>Con bà: <strong>Đỗ Thị Bích Thủy</strong></p>
-      </div>
+    </section>
+
+
+
+  </section>
+
+  <!-- Info -->
+  <section class="info">
+    <h2>Tham gia cùng chúng mình nhé!</h2>
+    <div class="info-image">
+      <img src="assets/img/thiepcuoi.png" alt="Thông tin lễ cưới" />
     </div>
   </section>
 
   <!-- Album -->
   <section class="album">
-    <h2 class="album-title">Album Ảnh Cưới</h2>
+    <h2 class="album-title">Album ảnh cưới</h2>
     <div class="album-grid">
       <img src="assets/img/album/1.jpg" alt="" />
       <img src="assets/img/album/2.jpg" alt="" />
@@ -103,21 +147,15 @@
     </div>
   </section>
 
-  <!-- Info -->
-  <section class="info">
-    <h2>Thời gian & Địa điểm</h2>
-    <p>Lễ cưới được tổ chức vào lúc </p>
-    <p><strong>10:30 ngày 30/11/2025</strong></p>
-    <p>Tại: <strong>Nhà hàng Nam Định</strong></p>
-  </section>
 
   <!-- QR -->
   <section class="qr">
-    <div>
-      <h4>QR</h4>
-      <img src="assets/img/QR.jpg" alt="QR Cô Dâu" />
+    <div class="qr-box">
+      <h4>Gửi quà cưới đến đôi uyên ương</h4>
+      <img src="assets/img/QR.png" alt="QR Cô Dâu" />
     </div>
   </section>
+
 
   <!-- Footer -->
   <footer>

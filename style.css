@@ -7,15 +7,15 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #fffafc;
-  color: #333;
+  background-color: #ffebd1;
+  color: #81191a;
   overflow-x: hidden;
 }
 
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
 }
 
@@ -69,40 +69,217 @@ body {
   margin-top: 10px;
 }
 
+/* --- Countdown Timer --- */
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 25px;
+  color: #fff;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  opacity: 1 !important;
+  /* Bắt buộc hiện */
+  transform: translateY(0);
+  animation: none;
+  /* Bỏ animation để không bị delay */
+  z-index: 10;
+  /* đảm bảo nằm trên overlay */
+}
+
+
+.time-box {
+  background: rgba(255, 0, 0, 0.2);
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 65px;
+  backdrop-filter: blur(5px);
+}
+
+.time-box span {
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.time-box p {
+  font-size: 0.9em;
+  margin-top: 3px;
+  color: #ffe6e6;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  .countdown {
+    gap: 15px;
+  }
+
+  .time-box {
+    min-width: 55px;
+    padding: 8px 10px;
+  }
+
+  .time-box span {
+    font-size: 1.6em;
+  }
+
+  .time-box p {
+    font-size: 0.8em;
+  }
+}
+
+
 /* --- Couple Section --- */
 .couple-section {
   text-align: center;
   padding: 60px 20px;
-  background-color: #fff;
 }
 
-.couple-photos {
+.couple-details {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* Căn giữa cặp đôi */
+  align-items: flex-start;
+  /* Căn chỉnh các phần tử con theo chiều dọc */
   gap: 40px;
+  /* Khoảng cách giữa chú rể và cô dâu */
   flex-wrap: wrap;
+  /* Cho phép xuống dòng trên màn hình nhỏ */
   margin-bottom: 30px;
 }
 
-.photo img {
-  width: 320px;
-  height: 320px;
+.groom-info,
+.bride-info {
+  display: flex;
+  /* Sử dụng flexbox để sắp xếp ảnh và text theo cột */
+  flex-direction: column;
+  align-items: center;
+  /* Căn giữa nội dung trong từng phần */
+  text-align: center;
+  padding: 20px;
+  background-color: #fcf6f0;
+  /* Nền nhẹ nhàng cho từng khối */
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  position: relative;
+  /* Dùng cho hiệu ứng chồng ảnh nếu muốn */
+  min-width: 300px;
+  /* Đảm bảo kích thước tối thiểu */
+}
+
+
+.couple-details .photo img {
+  /* Đã thay đổi selector từ .couple-photos .photo img */
+  width: 280px;
+  /* Điều chỉnh kích thước ảnh */
+  height: 380px;
+  /* Thay đổi chiều cao để giống ảnh mẫu */
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 15px;
+  /* Khoảng cách giữa ảnh và text phía dưới */
 }
 
-.divider {
+/* Thêm style cho tên và vai trò */
+.groom-info .role,
+.bride-info .role {
+  font-family: "Great Vibes", cursive;
+  /* Font chữ mềm mại */
+  font-size: 1.8em;
+  color: #81191a;
+  /* Màu nâu đất nhẹ */
+  margin-bottom: 5px;
+}
+
+.groom-info .name,
+.bride-info .name {
+  font-family: "Poppins", sans-serif;
+  /* Font chữ hiện đại */
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #81191a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Ẩn .couple-photos cũ nếu còn hoặc xóa nó đi */
+/* .couple-photos { display: none; } */
+
+
+.couple-title {
+  color: #81191a;
+  font-size: 1.5em;
+  margin: 20px 0 30px;
+  /* Điều chỉnh margin */
+  font-weight: 600;
+  font-family: "Great Vibes", cursive;
+  /* Có thể dùng font này cho tiêu đề */
+  font-size: 2.5em;
+}
+
+.couple-desc {
+  font-family: 'Noto Sans', sans-serif;
+  max-width: 700px;
+  margin: 0 auto 20px;
+  color: #81191a;
+  line-height: 1.7;
+}
+
+.parents {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 120px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  color: #81191a;
+  text-align: left;
 }
 
-.line {
+.parent-column {
+  min-width: 180px;
+}
+
+.parent-column h4 {
+  font-family: "Great Vibes", cursive;
+  font-size: 2em;
+  color: #81191a;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.parent-column p {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1em;
+  margin: 4px 0;
+  text-align: center;
+}
+
+.parent-column .address {
+  margin-top: 10px;
+  font-style: italic;
+  font-size: 0.95em;
+  color: #5c0f12;
+  text-align: center;
+  line-height: 1.4;
+}
+
+
+/* Divider giữa chú rể và cô dâu */
+.couple-details .divider {
   width: 2px;
-  height: 80px;
   background-color: #f4c7c3;
+  /* Màu hồng nhạt */
+  height: 200px;
+  /* Chiều cao của đường kẻ */
+  align-self: center;
+  /* Căn giữa theo chiều dọc trong flex container */
+  margin: 0 20px;
+  /* Khoảng cách hai bên của đường kẻ */
 }
 
 .heart {
@@ -114,57 +291,53 @@ body {
   color: #ff8fab;
 }
 
-.couple-section .divider .heart {
-  position: static;
-  animation: none;
-  font-size: 24px;
-  opacity: 1;
+.info {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fffaf8;
 }
 
-.couple-title {
-  color: #f28da2;
-  font-size: 1.8em;
-  margin: 20px 0 10px;
-  font-weight: 600;
+.info h2 {
+  font-size: 2.2em;
+  font-family: "Great Vibes", cursive;
+  color: #81191a;
+  margin-bottom: 25px;
 }
 
-.couple-desc {
-  max-width: 700px;
-  margin: 0 auto 20px;
-  color: #666;
-  line-height: 1.7;
+/* Ảnh nhỏ gọn, căn giữa */
+.info-image {
+  max-width: 600px;
+  /* Giới hạn chiều rộng tối đa */
+  margin: 0 auto;
 }
 
-.couple-names {
-  font-family: "Dancing Script", cursive;
-  font-size: 2em;
-  color: #f28da2;
-  margin-bottom: 20px;
+.info-image img {
+  width: 85%;
+  /* Ảnh chiếm 85% vùng hiển thị */
+  max-width: 500px;
+  /* Không to quá trên PC */
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  object-fit: contain;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.parents {
-  display: flex;
-  justify-content: center;
-  gap: 80px;
-  flex-wrap: wrap;
-  font-size: 0.95em;
-  color: #555;
-}
-
-.parents strong {
-  color: #000;
+.info-image img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* --- Album --- */
 .album {
   text-align: center;
   padding: 60px 20px;
-  background: #fff0f5;
+  /* background: #fff0f5; */
 }
 
 .album h2 {
   font-family: "Great Vibes", cursive;
-  color: #f28da2;
+  color: #81191a;
   font-size: 2.5em;
   margin-bottom: 40px;
 }
@@ -191,31 +364,57 @@ body {
 .info {
   text-align: center;
   padding: 40px 20px;
-  background: #fffafc;
+  /* background: #fffafc; */
 }
 
 /* --- QR --- */
 .qr {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  padding: 40px;
+  align-items: center;
+  padding: 60px 20px;
+  background-color: #fffaf8;
 }
 
-.qr img {
-  width: auto;
-  width: 150px;
-  height: 150px;
+.qr-box {
+  border: 2px solid #81191a;
+  /* viền màu chủ đạo */
+  border-radius: 16px;
+  padding: 25px 35px;
+  text-align: center;
+  background-color: #fcf6f0;
+  /* nền nhẹ giúp nổi bật QR */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.qr-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.qr-box h4 {
+  font-family: 'Great Vibes', cursive;
+  color: #81191a;
+  font-size: 1.6em;
+  margin-bottom: 15px;
+}
+
+.qr-box img {
+  width: 180px;
+  height: 180px;
   border-radius: 10px;
 }
 
 /* --- Footer --- */
 footer {
+  font-family: "Great Vibes", cursive;
   text-align: center;
   padding: 30px;
-  background: linear-gradient(to right, #fff0f5, #ffe6f0);
-  font-size: 1.2em;
+  background: #81191a;
+  color: #ffebd1;
+  font-size: 1.8em;
 }
 
 /* --- Music Button --- */
@@ -249,6 +448,30 @@ footer {
   animation: spin 4s linear infinite;
 }
 
+.overlay h1,
+.overlay h2,
+.overlay p {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1.5s ease forwards;
+}
+
+.overlay h2 {
+  animation-delay: 0.3s;
+}
+
+.overlay p {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -271,8 +494,13 @@ footer {
 }
 
 @keyframes floatUp {
-  to {
-    transform: translateY(-100vh);
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100vh) rotate(360deg) scale(1.5);
     opacity: 0;
   }
 }
@@ -280,7 +508,7 @@ footer {
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .overlay h1 {
-    font-size: 2em;
+    font-size: 3em;
   }
 
   .overlay h2 {
@@ -293,8 +521,27 @@ footer {
   }
 
   .parents {
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row !important;
+    /* ép hiển thị ngang */
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+    /* tuỳ chọn: giúp nội dung không bị căn giữa */
+  }
+
+  .parents>div {
+    flex: 1;
+    min-width: 140px;
+    /* đảm bảo mỗi bên có không gian */
+  }
+
+  .parent-column {
+    flex: 1;
+    text-align: left;
+  }
+
+  .parent-column h4 {
+    font-size: 2em;
   }
 
   .album-grid {
@@ -303,25 +550,65 @@ footer {
   }
 
   .qr {
-    flex-direction: column;
-    align-items: center;
+    padding: 40px 10px;
+  }
+
+  .qr-box {
+    padding: 20px;
+    max-width: 260px;
+  }
+
+  .qr-box h4 {
+    font-size: 1.3em;
+  }
+
+  .qr-box img {
+    width: 150px;
+    height: 150px;
   }
 
   .divider {
     display: none;
   }
 
-  .slide {
-    background-repeat: repeat-y;
-  }
 
   .lightbox img {
     max-width: 95%;
     max-height: 75vh;
   }
+
+  .footer {
+    font-size: 1em;
+  }
+
+  .info {
+    padding: 40px 15px;
+  }
+
+
+
+  .info-image img {
+    width: 90%;
+    /* Co lại vừa khung trên điện thoại */
+    max-width: 320px;
+    /* Giới hạn kích thước nhỏ hơn */
+    border-radius: 10px;
+  }
 }
 
 @media (max-width: 480px) {
+
+  .qr h4 {
+    font-size: 2em;
+
+  }
+
+  .slide {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
   .album-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 6px;
@@ -329,6 +616,40 @@ footer {
 
   .album-grid img {
     border-radius: 8px;
+  }
+
+  .parents {
+    font-size: 0.85em;
+    /* Chữ nhỏ gọn nhất cho điện thoại */
+    gap: 15px;
+  }
+
+  .parent-column h4 {
+    font-size: 1.8em;
+  }
+
+  .parent-column p {
+    font-size: 0.9em;
+  }
+
+
+
+  .qr {
+    padding: 40px 10px;
+  }
+
+  .qr-box {
+    padding: 20px;
+    max-width: 260px;
+  }
+
+  .qr-box h4 {
+    font-size: 1.3em;
+  }
+
+  .qr-box img {
+    width: 150px;
+    height: 150px;
   }
 }
 
@@ -376,7 +697,4 @@ footer {
 
 .lightbox .next {
   right: 20px;
-}
-
-@media (max-width: 768px) {
 }
