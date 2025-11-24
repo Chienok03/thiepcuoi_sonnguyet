@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  caret-color: transparent !important;
 }
 
 body {
@@ -368,44 +369,51 @@ body {
 }
 
 /* --- QR --- */
+/* QR Section */
 .qr {
+  text-align: center;
+  padding: 60px 20px;
+  background: #fff7f9;
+}
+
+.qr-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-family: "Great Vibes", cursive;
+  color: #81191a;
+}
+
+.qr-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 60px 20px;
-  background-color: #fffaf8;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: nowrap !important;
+  /* Không cho xuống dòng */
 }
 
 .qr-box {
-  border: 2px solid #81191a;
-  /* viền màu chủ đạo */
+  background: #ffffff;
+  padding: 20px;
   border-radius: 16px;
-  padding: 25px 35px;
-  text-align: center;
-  background-color: #fcf6f0;
-  /* nền nhẹ giúp nổi bật QR */
+  width: 260px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 300px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.qr-box:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-}
-
-.qr-box h4 {
-  font-family: 'Great Vibes', cursive;
-  color: #81191a;
-  font-size: 1.6em;
+.qr-img {
+  width: 100%;
+  border-radius: 12px;
   margin-bottom: 15px;
 }
 
-.qr-box img {
-  width: 180px;
-  height: 180px;
-  border-radius: 10px;
+.qr-name,
+.qr-bank,
+.qr-name-bank {
+  font-size: 16px;
+  margin: 5px 0;
+  font-family: "Poppins", sans-serif;
 }
+
 
 /* --- Footer --- */
 footer {
@@ -549,22 +557,22 @@ footer {
     gap: 10px;
   }
 
-  .qr {
-    padding: 40px 10px;
+  .qr-container {
+    flex-wrap: nowrap !important;
+    flex-direction: row !important;
+    /* Luôn nằm ngang */
+    gap: 10px;
   }
 
   .qr-box {
-    padding: 20px;
-    max-width: 260px;
+    width: 45%;
+    /* Thu nhỏ lại để vừa 2 cột */
+    max-width: none;
   }
 
-  .qr-box h4 {
-    font-size: 1.3em;
-  }
-
-  .qr-box img {
-    width: 150px;
-    height: 150px;
+  .qr-img {
+    width: 120px !important;
+    height: auto;
   }
 
   .divider {
@@ -598,9 +606,20 @@ footer {
 
 @media (max-width: 480px) {
 
-  .qr h4 {
-    font-size: 2em;
+  .qr-container {
+    flex-wrap: nowrap !important;
+    flex-direction: row !important;
+    gap: 6px;
+  }
 
+  .qr-box {
+    width: 48%;
+    /* Cho vừa màn 360px–420px */
+    padding: 12px;
+  }
+
+  .qr-img {
+    width: 110px !important;
   }
 
   .slide {
@@ -633,24 +652,6 @@ footer {
   }
 
 
-
-  .qr {
-    padding: 40px 10px;
-  }
-
-  .qr-box {
-    padding: 20px;
-    max-width: 260px;
-  }
-
-  .qr-box h4 {
-    font-size: 1.3em;
-  }
-
-  .qr-box img {
-    width: 150px;
-    height: 150px;
-  }
 }
 
 /* --- Lightbox (Xem ảnh phóng to) --- */
@@ -697,4 +698,36 @@ footer {
 
 .lightbox .next {
   right: 20px;
+}
+
+/* Lightbox phóng to QR */
+.qr-lightbox {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+.qr-lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.4);
+}
+
+.qr-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
 }

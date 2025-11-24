@@ -169,3 +169,27 @@ const countdown = setInterval(() => {
     .toString()
     .padStart(2, "0");
 }, 1000);
+
+// ------- PHÓNG TO QR ------- //
+const qrImages = document.querySelectorAll(".qr-img");
+const qrLightbox = document.getElementById("qrLightbox");
+const qrZoomImg = document.getElementById("qrZoomImg");
+const qrCloseBtn = document.querySelector(".qr-close");
+
+qrImages.forEach(img => {
+  img.addEventListener("click", () => {
+    qrZoomImg.src = img.src;
+    qrLightbox.style.display = "flex";
+  });
+});
+
+qrCloseBtn.addEventListener("click", () => {
+  qrLightbox.style.display = "none";
+});
+
+// Click ra ngoài cũng tắt
+qrLightbox.addEventListener("click", (e) => {
+  if (e.target === qrLightbox) {
+    qrLightbox.style.display = "none";
+  }
+});
