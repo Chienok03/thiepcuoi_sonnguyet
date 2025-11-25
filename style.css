@@ -142,64 +142,66 @@ body {
 .couple-details {
   display: flex;
   justify-content: center;
-  /* Căn giữa cặp đôi */
   align-items: flex-start;
-  /* Căn chỉnh các phần tử con theo chiều dọc */
   gap: 40px;
-  /* Khoảng cách giữa chú rể và cô dâu */
   flex-wrap: wrap;
-  /* Cho phép xuống dòng trên màn hình nhỏ */
   margin-bottom: 30px;
 }
 
 .groom-info,
 .bride-info {
   display: flex;
-  /* Sử dụng flexbox để sắp xếp ảnh và text theo cột */
   flex-direction: column;
   align-items: center;
-  /* Căn giữa nội dung trong từng phần */
   text-align: center;
   padding: 20px;
   background-color: #fcf6f0;
-  /* Nền nhẹ nhàng cho từng khối */
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   position: relative;
-  /* Dùng cho hiệu ứng chồng ảnh nếu muốn */
   min-width: 300px;
-  /* Đảm bảo kích thước tối thiểu */
+
+  /* Hiệu ứng ban đầu (ẩn + chuẩn bị trượt) */
+  opacity: 0;
+  transition: all 1s ease-out;
 }
 
+/* Chú rể: xuất hiện từ trái */
+.groom-info {
+  transform: translateX(-80px);
+}
+
+/* Cô dâu: xuất hiện từ phải */
+.bride-info {
+  transform: translateX(80px);
+}
+
+/* Khi scroll tới thì thêm class .show */
+.show {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
 
 .couple-details .photo img {
-  /* Đã thay đổi selector từ .couple-photos .photo img */
   width: 280px;
-  /* Điều chỉnh kích thước ảnh */
   height: 380px;
-  /* Thay đổi chiều cao để giống ảnh mẫu */
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   margin-bottom: 15px;
-  /* Khoảng cách giữa ảnh và text phía dưới */
 }
 
-/* Thêm style cho tên và vai trò */
 .groom-info .role,
 .bride-info .role {
   font-family: "Great Vibes", cursive;
-  /* Font chữ mềm mại */
   font-size: 1.8em;
   color: #81191a;
-  /* Màu nâu đất nhẹ */
   margin-bottom: 5px;
 }
 
 .groom-info .name,
 .bride-info .name {
   font-family: "Poppins", sans-serif;
-  /* Font chữ hiện đại */
   font-size: 1.5em;
   font-weight: 600;
   color: #81191a;
@@ -207,18 +209,11 @@ body {
   letter-spacing: 1px;
 }
 
-/* Ẩn .couple-photos cũ nếu còn hoặc xóa nó đi */
-/* .couple-photos { display: none; } */
-
-
 .couple-title {
   color: #81191a;
-  font-size: 1.5em;
   margin: 20px 0 30px;
-  /* Điều chỉnh margin */
   font-weight: 600;
   font-family: "Great Vibes", cursive;
-  /* Có thể dùng font này cho tiêu đề */
   font-size: 2.5em;
 }
 
@@ -229,6 +224,7 @@ body {
   color: #81191a;
   line-height: 1.7;
 }
+
 
 .parents {
   display: flex;
@@ -709,7 +705,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0, 0, 0, 0.85);
   justify-content: center;
   align-items: center;
 }
@@ -718,7 +714,7 @@ footer {
   max-width: 90%;
   max-height: 90%;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255,255,255,0.4);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 .qr-close {

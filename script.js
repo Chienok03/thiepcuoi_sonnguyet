@@ -193,3 +193,23 @@ qrLightbox.addEventListener("click", (e) => {
     qrLightbox.style.display = "none";
   }
 });
+
+// --- Hiệu ứng xuất hiện thông tin cô dâu chú rể ---
+document.addEventListener("DOMContentLoaded", () => {
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  document.querySelectorAll(".groom-info, .bride-info").forEach(el => {
+    observer.observe(el);
+  });
+
+});
+
